@@ -1,0 +1,9 @@
+structure,n,average_ms,element_accesses,theory
+DynamicArray,100,0.1294,10000,O(m)
+LinkedList,100,0.7196,511508,O(mn)
+DynamicArray,1000,0.1020,10000,O(m)
+LinkedList,1000,4.9995,5015208,O(mn)
+DynamicArray,10000,0.0364,10000,O(m)
+LinkedList,10000,50.7192,50139208,O(mn)
+DynamicArray,100000,0.0109,10000,O(m)
+LinkedList,100000,485.8167,502499208,O(mn)
