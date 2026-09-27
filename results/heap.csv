@@ -1,0 +1,9 @@
+operation,n,average_ms,comparisons,theory
+insert,100,0.0145,206,O(n log n)
+extract,100,0.0260,863,O(n log n)
+insert,1000,0.0574,2326,O(n log n)
+extract,1000,0.0992,14996,O(n log n)
+insert,10000,0.4492,22753,O(n log n)
+extract,10000,0.9765,216531,O(n log n)
+insert,100000,2.2118,227857,O(n log n)
+extract,100000,8.5263,2831426,O(n log n)

@@ -51,6 +51,14 @@ public class Tests {
         PriorityQueue<Integer> queue = new PriorityQueue<>();
         invalid(() -> heap.peekMin());
         invalid(() -> heap.extractMin());
+        for (int i = 100; i >= 0; i--) {
+            heap.insert(i);
+            check(heap.valid());
+        }
+        for (int i = 0; i <= 100; i++) {
+            check(heap.extractMin() == i);
+            check(heap.valid());
+        }
         for (int i = 0; i < 100000; i++) {
             int value = random.nextInt(1000);
             heap.insert(value);

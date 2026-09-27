@@ -3,6 +3,7 @@ import java.util.NoSuchElementException;
 public class MinHeap {
     private int[] data = new int[10];
     private int size = 0;
+    public long comparisons = 0;
 
     public void insert(int value) {
         if (size == data.length) {
@@ -11,7 +12,9 @@ public class MinHeap {
             data = bigger;
         }
         int i = size++;
-        while (i > 0 && data[(i - 1) / 2] > value) {
+        while (i > 0) {
+            comparisons++;
+            if (data[(i - 1) / 2] <= value) break;
             data[i] = data[(i - 1) / 2];
             i = (i - 1) / 2;
         }
@@ -23,13 +26,24 @@ public class MinHeap {
         return data[0];
     }
 
+    boolean valid() {
+        for (int i = 1; i < size; i++) {
+            if (data[(i - 1) / 2] > data[i]) return false;
+        }
+        return true;
+    }
+
     public int extractMin() {
         int minimum = peekMin();
         int last = data[--size];
         int i = 0;
         while (2 * i + 1 < size) {
             int child = 2 * i + 1;
-            if (child + 1 < size && data[child + 1] < data[child]) child++;
+            if (child + 1 < size) {
+                comparisons++;
+                if (data[child + 1] < data[child]) child++;
+            }
+            comparisons++;
             if (last <= data[child]) break;
             data[i] = data[child];
             i = child;
